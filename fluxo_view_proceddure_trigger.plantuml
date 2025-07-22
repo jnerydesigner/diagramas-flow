@@ -1,0 +1,34 @@
+@startuml diagram_flow_view_procedure_trigger
+title Fluxo entre Procedure, Trigger e View
+
+entity "Funcionarios" as F {
+  + id : INT
+  + nome : VARCHAR
+  + cargo : VARCHAR
+  + salario : DECIMAL
+  + cidade : VARCHAR
+  + data_admissao : DATE
+}
+
+entity "Auditoria" as A {
+  + id : INT
+  + acao : VARCHAR
+  + data_execucao : DATETIME
+  + usuario : VARCHAR
+}
+
+entity "View: SalarioMedioPorCidade" as V {
+  cidade
+  media_salarial
+  total_funcionarios
+}
+
+entity "Procedure: InserirFuncionario()" as P
+entity "Trigger: trg_insercao_funcionarios" as T
+
+P --> F : INSERT INTO
+F --> T : dispara AFTER INSERT
+T --> A : INSERT INTO Auditoria
+F --> V : consulta GROUP BY
+
+@enduml
