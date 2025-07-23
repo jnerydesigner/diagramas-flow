@@ -1,0 +1,18 @@
+@startuml fluxo_requisitos
+title **Fluxo de Definição de Requisitos**
+
+start
+:Coleta de Requisitos;
+:Identificar RF (funcionalidades);
+:Identificar RNF (performance, segurança);
+:Identificar RFC (regras de negócio);
+
+if (Validação com Stakeholders?) then (Sim)
+  :Documentar requisitos aprovados;
+  :Criar Casos de Uso;
+else (Não)
+  :Revisar requisitos com equipe;
+endif
+
+stop
+@enduml

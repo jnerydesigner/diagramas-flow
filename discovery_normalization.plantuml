@@ -1,0 +1,37 @@
+@startuml discovery
+!define RECTANGLE class
+
+title **Discovery de Requisitos + Normalização de Banco de Dados**
+
+start
+
+:Início do Projeto;
+
+split
+  :Discovery de Requisitos;
+  ->[Funcionalidades]
+  :1. Identificar stakeholders;
+  :2. Levantar problemas e oportunidades;
+  :3. Levantar requisitos funcionais;
+  :4. Levantar requisitos não funcionais;
+  :5. Mapear regras de negócio;
+  :6. Criar user stories e casos de uso;
+  :7. Criar protótipos/wireframes;
+  :8. Priorizar requisitos;
+  :9. Documentar e validar com stakeholders;
+split again
+  :Normalização BD;
+  :1. Coleta de requisitos de dados;
+  :2. Modelagem inicial não normalizada;
+  :3. Aplicar 1FN (atomicidade);
+  :4. Aplicar 2FN (dependência da chave primária);
+  :5. Aplicar 3FN (remover dependências transitivas);
+  :6. Verificar BCNF (opcional);
+  :7. Validação e ajustes (possível desnormalização);
+endsplit
+
+:Integração entre requisitos e modelo de dados;
+:Validação final do sistema;
+
+stop
+@enduml

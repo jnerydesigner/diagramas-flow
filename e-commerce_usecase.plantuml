@@ -1,0 +1,12 @@
+@startuml ecommerce_usecase
+title **Caso de Uso: E-commerce**
+actor Cliente
+actor Administrador
+actor "Sistema de Pagamento" as SP
+
+Cliente --> (Realizar Compra)
+Cliente --> (Visualizar Produtos)
+(Realizar Compra) --> SP
+Administrador --> (Gerenciar Produtos)
+Administrador --> (Ver Relatórios de Vendas)
+@enduml

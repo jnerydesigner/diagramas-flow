@@ -1,0 +1,35 @@
+@startuml flow_automatization
+title **Automatização de Buscas em Big Data**
+
+start
+
+:Receber consulta do usuário ou sistema;
+
+if (Consulta é comum?) then (Sim)
+  :Verificar no cache (Redis/Memcached);
+  if (Resultado no cache?) then (Sim)
+    :Retornar resultado do cache;
+    stop
+  else (Não)
+    :Continuar para busca em base;
+  endif
+else (Não)
+  :Continuar para busca em base;
+endif
+
+:Selecionar cluster/shard correto (Particionamento de dados);
+:Executar busca no índice (ex: Elasticsearch, Solr);
+:Se necessário, usar pré-aggregações (Data Warehouse ou Views);
+
+if (Consulta é muito pesada?) then (Sim)
+  :Processar em lote com Spark/Flink;
+  :Enviar resultado pronto para cache;
+else (Não)
+  :Retornar resultado direto;
+endif
+
+:Salvar resultado no cache para futuras consultas;
+:Retornar resultado ao usuário/sistema;
+
+stop
+@enduml

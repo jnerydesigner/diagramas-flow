@@ -1,0 +1,16 @@
+@startuml eccomerce_dfd
+title **Fluxo de Dados: Checkout E-commerce**
+actor Cliente
+rectangle "Front-End (React)" as FE
+rectangle "API (Backend)" as API
+database "Banco de Dados" as DB
+rectangle "Gateway de Pagamento" as GW
+
+Cliente --> FE : Dados de compra
+FE --> API : Requisição HTTP
+API --> DB : Consulta estoque
+API --> GW : Processar pagamento
+GW --> API : Confirmação
+API --> FE : Status do pedido
+FE --> Cliente : Confirmação de compra
+@enduml

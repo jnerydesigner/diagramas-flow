@@ -1,0 +1,14 @@
+@startuml ecoomerce_documentation
+actor Cliente
+rectangle "Frontend (React)" as FE
+rectangle "API Backend (NestJS)" as API
+database "PostgreSQL" as DB
+rectangle "Gateway de Pagamento" as GP
+rectangle "Storage (MinIO)" as S3
+
+Cliente --> FE
+FE --> API
+API --> DB
+API --> GP
+API --> S3
+@enduml

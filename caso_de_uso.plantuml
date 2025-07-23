@@ -1,0 +1,9 @@
+@startuml use_cases
+actor Cliente
+actor Administrador
+actor "Sistema de Pagamento" as SP
+
+Cliente --> (Realizar Compra)
+(Realizar Compra) --> SP
+Administrador --> (Gerenciar Produtos)
+@enduml

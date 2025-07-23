@@ -1,0 +1,8 @@
+@startuml
+actor Cliente
+actor "Gateway Pagamento" as GP
+Cliente --> (Navegar Produtos)
+Cliente --> (Adicionar ao Carrinho)
+Cliente --> (Finalizar Compra)
+(Finalizar Compra) --> GP
+@enduml
